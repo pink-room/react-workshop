@@ -1,6 +1,6 @@
 import React from 'react';
+import logo from 'views/assets/images/logo.svg'
 import 'views/assets/stylesheets/App.css';
-import Image from 'views/components/Image';
 
 class App extends React.Component {
 
@@ -28,19 +28,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
           <h1> Meme it! </h1>
         </header>
 
-        <div className="App-inputs" >
-
-        </div>
-
-        <button> </button>
-
-        <div className="Images">
-
-        </div>
-
+        <div className="App-inputs" />
 
       </div>
     );

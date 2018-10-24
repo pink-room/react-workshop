@@ -1,5 +1,3 @@
 import React from 'react';
 
-export const Image = () => {
-
-}
+export const Image = (props) => { }

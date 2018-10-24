@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
-import Image from './Image';
+import React from 'react';
+import 'views/assets/stylesheets/App.css';
+import Image from 'views/components/Image';
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props)

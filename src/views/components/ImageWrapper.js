@@ -1,3 +1,15 @@
 import React from 'react';
+import { Image } from 'views/components/Image';
 
-export const ImageWrapper = (props) => { }
+export const ImageWrapper = ({ images }) => { 
+  return (
+    <div className="ImageWrapper">
+      {images.map(image => 
+        <Image
+          name={image.name}
+          url={image.url}
+        />
+      )}
+    </div>
+  );
+}

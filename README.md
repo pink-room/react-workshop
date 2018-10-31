@@ -30,5 +30,6 @@ Hi there! Welcome to Pink Room's React Workshop
 2. Clone this repo.
     1. (Optional) Checkout to desired branch.
 3. Run `npm install` or `yarn install`
-4. Run `npm start` or `yarn start`
+4. Rename .env.example to .env.local
+5. Run `npm start` or `yarn start`
 

@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  background-color: #222;
+  height: 70px;
+  padding: 20px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 50px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-inputs {
+  display: inline-block;
+  margin: 20px;
+}
+
+.App-inputs > input {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.App-generated-meme {
+  display: inline-block;
+}

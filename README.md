@@ -22,3 +22,13 @@ Hi there! Welcome to Pink Room's React Workshop
     * Composition and Inheritance
 5. Event Handling
 6. Conditional Rendering
+
+## How to setup the project
+
+1. Install [Node and NPM](https://nodejs.org/en/)
+    1. (Optional) Install [Yarn](https://yarnpkg.com/en/docs/install)
+2. Clone this repo.
+    1. (Optional) Checkout to desired branch.
+3. Run `npm install` or `yarn install`
+4. Run `npm start` or `yarn start`
+

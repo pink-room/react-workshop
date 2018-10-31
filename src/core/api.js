@@ -6,11 +6,11 @@ export function getPopularImages() {
 }
 
 // request to create a meme at https://api.imgflip.com/caption_image
-export function createMeme(template_id, text0, text1) {
+export function createMeme(templateID, upperText, lowerText) {
   return request('caption_image', {
-    template_id,
-    text0,
-    text1
+    templateID,
+    upperText,
+    lowerText,  
   });
 }
 

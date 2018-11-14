@@ -6,7 +6,8 @@ export const ImageWrapper = ({images, passOnClick, selectedImage}) => {
     <div className="ImageWrapper">
       {images.map(image => (
         <Image
-          onClick={passOnClick}
+          key={image.url}
+          handleClick={passOnClick}
           image={image}
           selected={selectedImage}
         />

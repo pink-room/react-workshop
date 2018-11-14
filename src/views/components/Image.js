@@ -1,12 +1,12 @@
 import React from 'react';
 import 'views/assets/stylesheets/Image.css';
 
-export const Image = ({ name, url, selected }) => {
-  const selectedClass = selected ? 'selected' : '';
+export const Image = ({image, selected, onClick}) => {
+  const selectedClass = selected && selected === image.url ? 'selected' : '';
   return (
-    <div className={`Image ${selectedClass}`}>
-      <span>{name}</span>
-      <img src={url} alt='nice meme' />
+    <div className={`Image ${selectedClass}`} onClick={onClick}>
+      <span>{image.name}</span>
+      <img src={image.url} alt="nice meme" />
     </div>
   );
 };

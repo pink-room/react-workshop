@@ -1,32 +1,35 @@
 import React from 'react';
-import logo from 'views/assets/images/logo.svg'
+import logo from 'views/assets/images/logo.svg';
 import 'views/assets/stylesheets/App.css';
-import { ImageWrapper } from 'views/components/ImageWrapper';
-import { getPopularImages } from 'core/api';
+import {ImageWrapper} from 'views/components/ImageWrapper';
+import {getPopularImages} from 'core/api';
 
 class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       // Add state
       images: [],
-    }
+      selectedImage: null,
+    };
   }
 
   componentDidMount() {
     // Add logic
-    getPopularImages().then(response => this.setState({ images: response.data.memes }));
+    getPopularImages().then(response =>
+      this.setState({images: response.data.memes}),
+    );
   }
 
+  setUpperText = e => {};
 
-  setUpperText = (e) => {}
+  setLowerText = e => {};
 
-  setLowerText = (e) => {}
+  onSelect = e => {
+    this.setState({selectedImage: e.target.currentSrc});
+  };
 
-  onSelect = (e) => {}
-
-  onClick = (e) => {}
+  onClick = e => {};
 
   render() {
     return (
@@ -38,8 +41,11 @@ class App extends React.Component {
 
         <div className="App-inputs" />
 
-        <ImageWrapper images={this.state.images} />
-
+        <ImageWrapper
+          passOnClick={this.onSelect}
+          images={this.state.images}
+          selectedImage={this.state.selectedImage}
+        />
       </div>
     );
   }

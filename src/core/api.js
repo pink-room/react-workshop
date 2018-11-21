@@ -1,7 +1,7 @@
 const API_URL = 'https://api.imgflip.com/';
 
 // get memes from https://api.imgflip.com/get_memes
-export function getPopularImages() {
+export function getPopularMemes() {
   return request('get_memes');
 }
 

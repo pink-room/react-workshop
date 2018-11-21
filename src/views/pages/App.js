@@ -2,7 +2,7 @@ import React from 'react';
 import logo from 'views/assets/images/logo.svg';
 import 'views/assets/stylesheets/App.css';
 import {ImageWrapper} from 'views/components/ImageWrapper';
-import {getPopularImages} from 'core/api';
+import {getPopularMemes} from 'core/api';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    getPopularImages().then(response =>
+    getPopularMemes().then(response =>
       this.setState({memes: response.data.memes}),
     );
   }

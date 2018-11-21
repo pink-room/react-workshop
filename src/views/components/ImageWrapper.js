@@ -1,15 +1,15 @@
 import React from 'react';
 import {Image} from 'views/components/Image';
 
-export const ImageWrapper = ({images, passOnClick, selectedImage}) => {
+export const ImageWrapper = ({images, handleClick, selectedImageUrl}) => {
   return (
     <div className="ImageWrapper">
       {images.map(image => (
         <Image
           key={image.url}
-          handleClick={passOnClick}
+          handleClick={handleClick}
           image={image}
-          selected={selectedImage}
+          selectedImageUrl={selectedImageUrl}
         />
       ))}
     </div>

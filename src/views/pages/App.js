@@ -1,28 +1,30 @@
 import React from 'react';
-import logo from 'views/assets/images/logo.svg'
+import logo from 'views/assets/images/logo.svg';
 import 'views/assets/stylesheets/App.css';
+import {ImageWrapper} from 'views/components/ImageWrapper';
+import {getPopularMemes} from 'core/api';
 
 class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      // Add state
-    }
+      memes: [],
+    };
   }
 
   componentDidMount() {
-    // Add logic
+    getPopularMemes().then(response =>
+      this.setState({memes: response.data.memes}),
+    );
   }
 
+  setUpperText = e => {};
 
-  setUpperText = (e) => {}
+  setLowerText = e => {};
 
-  setLowerText = (e) => {}
+  onSelect = e => {};
 
-  onSelect = (e) => {}
-
-  onClick = (e) => {}
+  onClick = e => {};
 
   render() {
     return (
@@ -34,6 +36,7 @@ class App extends React.Component {
 
         <div className="App-inputs" />
 
+        <ImageWrapper images={this.state.memes} />
       </div>
     );
   }

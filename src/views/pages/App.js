@@ -8,15 +8,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // Add state
-      images: [],
+      memes: [],
     };
   }
 
   componentDidMount() {
-    // Add logic
     getPopularImages().then(response =>
-      this.setState({images: response.data.memes}),
+      this.setState({memes: response.data.memes}),
     );
   }
 
@@ -38,7 +36,7 @@ class App extends React.Component {
 
         <div className="App-inputs" />
 
-        <ImageWrapper images={this.state.images} />
+        <ImageWrapper images={this.state.memes} />
       </div>
     );
   }

@@ -53,7 +53,7 @@ class App extends React.Component {
         </header>
 
         {this.state.selectedImage && (
-          <div className="App-generated-meme">
+          <div className="App-create-meme">
             <div className="App-inputs">
               <form onSubmit={this.handleSubmit}>
                 <label>
@@ -69,8 +69,8 @@ class App extends React.Component {
             </div>
 
             <div className="App-selected">
-              <h2> {this.state.upperText} </h2>
-              <h2> {this.state.lowerText} </h2>
+              <h2> Upper Text: {this.state.upperText} </h2>
+              <h2> Lower Text: {this.state.lowerText} </h2>
               <Image
                 image={this.state.selectedImage}
                 handleClick={this.handleClick}
@@ -78,7 +78,7 @@ class App extends React.Component {
             </div>
 
             {this.state.createdMeme && (
-              <div className="App-selected">
+              <div className="App-generated-meme">
                 <Image
                   image={this.state.createdMeme}
                   handleClick={this.handleClick}

@@ -2,13 +2,18 @@ import React from 'react';
 import logo from 'views/assets/images/logo.svg';
 import 'views/assets/stylesheets/App.css';
 import {ImageWrapper} from 'views/components/ImageWrapper';
-import {getPopularMemes} from 'core/api';
+import {Image} from 'views/components/Image';
+import {createMeme, getPopularMemes} from 'core/api';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       memes: [],
+      selectedImage: null,
+      upperText: '',
+      lowerText: '',
+      createdMeme: null,
     };
   }
 
@@ -18,13 +23,26 @@ class App extends React.Component {
     );
   }
 
-  setUpperText = e => {};
+  setUpperText = e => {
+    this.setState({upperText: e.target.value});
+  };
 
-  setLowerText = e => {};
+  setLowerText = e => {
+    this.setState({lowerText: e.target.value});
+  };
 
-  onSelect = e => {};
+  handleClick = (image, e) => {
+    this.setState({selectedImage: image});
+  };
 
-  onClick = e => {};
+  handleSubmit = e => {
+    e.preventDefault();
+    createMeme(
+      this.state.selectedImage.id,
+      this.state.upperText,
+      this.state.lowerText,
+    ).then(response => this.setState({createdMeme: response.data}));
+  };
 
   render() {
     return (
@@ -34,9 +52,49 @@ class App extends React.Component {
           <h1> Meme it! </h1>
         </header>
 
-        <div className="App-inputs" />
+        {this.state.selectedImage && (
+          <div className="App-create-meme">
+            <div className="App-inputs">
+              <form onSubmit={this.handleSubmit}>
+                <label>
+                  Upper Text:
+                  <input type="text" onChange={this.setUpperText} />
+                </label>
+                <label>
+                  Lower Text:
+                  <input type="text" onChange={this.setLowerText} />
+                </label>
+                <input type="submit" value="Create Meme" />
+              </form>
+            </div>
 
-        <ImageWrapper images={this.state.memes} />
+            <div className="App-selected">
+              <h2> Upper Text: {this.state.upperText} </h2>
+              <h2> Lower Text: {this.state.lowerText} </h2>
+              <Image
+                image={this.state.selectedImage}
+                handleClick={this.handleClick}
+              />
+            </div>
+
+            {this.state.createdMeme && (
+              <div className="App-generated-meme">
+                <Image
+                  image={this.state.createdMeme}
+                  handleClick={this.handleClick}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        <ImageWrapper
+          handleClick={this.handleClick}
+          images={this.state.memes}
+          selectedImageUrl={
+            this.state.selectedImage && this.state.selectedImage.url
+          }
+        />
       </div>
     );
   }

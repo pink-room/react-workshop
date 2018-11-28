@@ -21,7 +21,7 @@
 }
 
 .App-inputs {
-  display: inline-block;
+  float: center;
   margin: 20px;
 }
 
@@ -30,6 +30,14 @@
   margin-right: 20px;
 }
 
-.App-generated-meme {
+.App-create-meme {
   display: inline-block;
+}
+
+.App-selected {
+  float: left;
+}
+
+.App-generated-meme {
+  float: right;
 }
